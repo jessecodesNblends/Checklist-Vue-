@@ -1,4 +1,6 @@
-# checklist
+# Checklist
+# Project Description
+Checklist is a VueJS application for listing items
 
 ## Project setup
 ```
@@ -19,7 +21,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# Checklist-Vue-
