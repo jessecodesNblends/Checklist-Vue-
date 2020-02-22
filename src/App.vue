@@ -1,32 +1,52 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-content>
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card color="#FFEB3B" class="elevation-12">
+              <app-nav-bar></app-nav-bar>
+              <app-task-list v-bind:tasks="tasks" v-on:deleteTask="deleteTask" v-on:checkComplete='checkComplete'></app-task-list>
+              <app-new-task v-on:newTask="addTask"></app-new-task>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Navbar from "./components/Navbar.vue";
+import TaskList from "./components/TaskList.vue";
+import NewTask from "./components/NewTask.vue";
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  name: "App",
+  components: {
+    appNavBar: Navbar,
+    appTaskList: TaskList,
+    appNewTask: NewTask
+  },
+  data: function() {
+    return {
+      tasks: []
+    };
+  },
+  methods: {
+    addTask(task) {
+      this.tasks.push(task);
+      for (var i = 0; i < this.tasks.length; i++) {
+        console.log(this.tasks[i]);
+      }
+    },
+    checkComplete(index) {
+      this.tasks.splice(index, 1);
+    },
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+      console.log(index);
+    }
+  }
+};
+</script>
