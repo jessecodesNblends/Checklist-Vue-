@@ -2,7 +2,7 @@
   <div>
     <v-toolbar align="center" color="#FBC02D">
       <v-toolbar-title>
-        <span class="font-weight-bold">CheckList</span>
+        <span class="font-weight-bold pl-3">CheckList</span>
       </v-toolbar-title>
     </v-toolbar>
   </div>
